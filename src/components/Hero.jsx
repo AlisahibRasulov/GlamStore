@@ -1,9 +1,18 @@
-import React from 'react'
+// import React from 'react'
+
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div>Hero</div>
-  )
-}
+    <section>
+      <div>
+        <h2>Elevate your wardriobe with trendy fashion from <span>GlamStore</span></h2>
+        <div>
+          <Link to={""}></Link>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;
