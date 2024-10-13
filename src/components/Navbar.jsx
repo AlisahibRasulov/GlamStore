@@ -1,6 +1,6 @@
 // import React from 'react'
 
-const Navbar = ({containerStyles}) => {
+const Navbar = ({ containerStyles }) => {
   return (
    <nav className={`${containerStyles}`}>
     <a href="#home" className='active-link'>Home</a>
