@@ -13,7 +13,6 @@ const Product = ({product}) => {
           <p>{description}</p>
           <div>
             <h6>${price}</h6>
-            <p>sales ({rating.count})</p>
           </div>
         </div>
     </div>
