@@ -19,8 +19,8 @@ const Product = ({product}) => {
             <div className="absolute -bottom-4 right-3 flexCenter flex-col gap-2 bg-white p-1 rounded-full ring-1 ring-slate-900/5">
                 <Link to={`/product/${id}`} className="hidden group-hover:flex duration-300">
                 <FaLink className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
-                <FaPlus className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
                 </Link>
+                <FaPlus className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
             </div>
         </div>
         <div className="p-3">

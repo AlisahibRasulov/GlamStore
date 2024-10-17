@@ -1,13 +1,15 @@
 // import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
+import { SidebarContext } from "../context/SidebarContext";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const {isOpen ,setIsOpen} = useContext(SidebarContext);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -59,12 +61,12 @@ const Header = () => {
               className="md:hidden cursor-pointer hover:text-secondary text-2xl"
             />
           )}
-          <Link className="flex relative">
+          <div onClick={()=>setIsOpen(!isOpen)} className="flex relative">
             <GiShoppingBag className="text-[25px]" />
             <span className="bg-secondary text-white text-sm absolute -top-2.5 -right-2.5 flexCenter w-5 h-5 rounded-full">
               0
             </span>
-          </Link>
+          </div>
           <button className="btn-outline rounded-full">Login</button>
         </div>
       </div>

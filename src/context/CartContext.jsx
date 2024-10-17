@@ -1,9 +1,14 @@
-// import React from 'react'
+import { createContext } from "react"
 
-const CartContext = () => {
+// import React from 'react'
+export const CartContext = createContext()
+
+const CartProvider = ({children}) => {
   return (
-    <div>CartContext</div>
+    <CartContext.Provider value={'This is the cart context'}>
+        {children}
+    </CartContext.Provider>
   )
 }
 
-export default CartContext
+export default CartProvider

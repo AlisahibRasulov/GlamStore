@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import ProductDetails from "./pages/ProductDetails"
 
+
 export default function App() {
   return (
   <div className="overflow-hidden">
@@ -20,4 +21,5 @@ export default function App() {
   </div>
 
   )
+  
 }
