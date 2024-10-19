@@ -1,9 +1,12 @@
 // import React from 'react'
 
+import { useContext } from "react";
 import { FaLink, FaPlus, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const Product = ({product}) => {
+  const{addToCart} = useContext(CartContext);
   const {id,image,category,title,description,price,rating} = product;
   return (
     <div className="bg-white ring-1 ring-slate-900/5 rounded-xl group">
@@ -20,7 +23,7 @@ const Product = ({product}) => {
                 <Link to={`/product/${id}`} className="hidden group-hover:flex duration-300">
                 <FaLink className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
                 </Link>
-                <FaPlus className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
+                <FaPlus onClick={()=>addToCart(product,id)} className="bg-secondary text-white h-7 w-7 p-1.5 rounded-full cursor-pointer"/>
             </div>
         </div>
         <div className="p-3">
