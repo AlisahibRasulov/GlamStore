@@ -30,7 +30,6 @@ const CartItem = ({ item }) => {
             <MdClose />
           </div>
         </div>
-      </div>
       {/* cart btns and price */}
       <div className="flexBetween ">
         <div className="flexBetween gap-4 ring-1 ring-offset-slate-900/5 px-2">
@@ -41,6 +40,7 @@ const CartItem = ({ item }) => {
         <p>${0}</p>
         {/* final price */}
         <div>final price</div>
+      </div>
       </div>
     </div>
   );
