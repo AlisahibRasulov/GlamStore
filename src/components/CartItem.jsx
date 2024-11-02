@@ -3,8 +3,11 @@
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
 const CartItem = ({ item }) => {
+  const{removeFromCart,increaseQuantity,decreaseQuantity} = useContext(CartContext);
   const { id, title, image, quantity, price } = item;
 
   return (
@@ -27,19 +30,19 @@ const CartItem = ({ item }) => {
         <div className="flex justify-between gap-8 items-baseline">
           <div className="medium-14 uppercase line-clamp-2">{title}</div>
           <div className="cursor-pointer text-gray-50">
-            <MdClose />
+            <MdClose onClick={()=>removeFromCart(id)}/>
           </div>
         </div>
       {/* cart btns and price */}
       <div className="flexBetween ">
-        <div className="flexBetween gap-4 ring-1 ring-offset-slate-900/5 px-2">
-          <FaMinus className="cursor-pointer"/>
-          <span>{0}</span>
-          <FaPlus className="cursor-pointer"/>
+        <div className="flexBetween gap-4 ring-1 ring-slate-900/5 px-2">
+          <FaMinus onClick={()=>decreaseQuantity(id)} className="cursor-pointer"/>
+          <span>{quantity}</span>
+          <FaPlus onClick={()=>increaseQuantity(id)} className="cursor-pointer"/>
         </div>
         <p>${0}</p>
         {/* final price */}
-        <div>final price</div>
+        <div className="medium-15">final price</div>
       </div>
       </div>
     </div>
