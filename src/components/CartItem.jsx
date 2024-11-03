@@ -40,9 +40,9 @@ const CartItem = ({ item }) => {
           <span>{quantity}</span>
           <FaPlus onClick={()=>increaseQuantity(id)} className="cursor-pointer"/>
         </div>
-        <p>${0}</p>
+        <p>${price}</p>
         {/* final price */}
-        <div className="medium-15">final price</div>
+        <div className="medium-15">{`$${parseFloat(price * quantity).toFixed(2)}`}</div>
       </div>
       </div>
     </div>

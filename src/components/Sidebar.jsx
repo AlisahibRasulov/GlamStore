@@ -8,7 +8,7 @@ import CartItem from "./CartItem";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart, total, itemQuantity } = useContext(CartContext);
   // console.log("This is the cart context", useContext(CartContext));
   return (
     <div
@@ -17,7 +17,7 @@ const Sidebar = () => {
     xl:max-w-[27vw] transition-all duration-300 z-20 px-4 lg:px-[35px]`}
     >
       <div className="flexBetween py-6 border-b">
-        <div className="uppercase text-sm font-semibold">Shopping Bag (0)</div>
+        <div className="uppercase text-sm font-semibold">Shopping Bag ({itemQuantity})</div>
         {/* icon */}
         <div
           onClick={handleClose}
@@ -27,10 +27,26 @@ const Sidebar = () => {
         </div>
       </div>
       {/* cart item */}
-      <div>
+      <div
+        className="flex flex-col gap-y-2 min-h-[411px] xl:h-[650px] overflow-y-auto 
+      overflow-x-hidden border-b my-6"
+      >
         {cart.map((item) => (
           <CartItem item={item} key={item.id} />
         ))}
+      </div>
+      {/* total */}
+      <div className="flexBetween mb-2">
+        <span className="uppercase bold-16">Total = </span>
+        <span>${parseFloat(total).toFixed(2)}</span>
+      </div>
+      {/* clear icon */}
+      <div>
+       
+      </div>
+      <div className="flex flex-col gap2">
+        <button className="btn-light">View card</button>
+        <button className="btn-dark">Checkout</button>
       </div>
     </div>
   );
