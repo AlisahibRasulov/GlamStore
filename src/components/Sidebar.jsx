@@ -5,6 +5,7 @@ import { SidebarContext } from "../context/SidebarContext";
 import { IoMdArrowForward } from "react-icons/io";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
+import { TbTrash } from "react-icons/tb";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
@@ -17,7 +18,9 @@ const Sidebar = () => {
     xl:max-w-[27vw] transition-all duration-300 z-20 px-4 lg:px-[35px]`}
     >
       <div className="flexBetween py-6 border-b">
-        <div className="uppercase text-sm font-semibold">Shopping Bag ({itemQuantity})</div>
+        <div className="uppercase text-sm font-semibold">
+          Shopping Bag ({itemQuantity})
+        </div>
         {/* icon */}
         <div
           onClick={handleClose}
@@ -28,21 +31,23 @@ const Sidebar = () => {
       </div>
       {/* cart item */}
       <div
-        className="flex flex-col gap-y-2 min-h-[411px] xl:h-[650px] overflow-y-auto 
+        className="flex flex-col gap-y-2 h-[360px] 2xl:h-[650px] overflow-y-auto 
       overflow-x-hidden border-b my-6"
       >
         {cart.map((item) => (
           <CartItem item={item} key={item.id} />
         ))}
       </div>
-      {/* total */}
       <div className="flexBetween mb-2">
-        <span className="uppercase bold-16">Total = </span>
-        <span>${parseFloat(total).toFixed(2)}</span>
-      </div>
-      {/* clear icon */}
-      <div>
-       
+        {/* total */}
+        <div className="uppercase bold-16">
+          <span>Total = </span>
+          <span>${parseFloat(total).toFixed(2)}</span>
+        </div>
+        {/* clear icon */}
+        <div onClick={clearCart} className="text-2xl cursor-pointer">
+          <TbTrash />
+        </div>
       </div>
       <div className="flex flex-col gap2">
         <button className="btn-light">View card</button>
