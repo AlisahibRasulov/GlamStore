@@ -24,7 +24,19 @@ const Offer = () => {
         seconds: "00",
       };
     }
-  }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  })
   return (
     <div>Offer</div>
   )
