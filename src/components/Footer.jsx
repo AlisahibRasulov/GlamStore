@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-tertiary max-padd-container text-white py-12 rounded-xl"
+      className="bg-tertiary max-padd-container text-white py-12 rounded-sm"
     >
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and description */}
